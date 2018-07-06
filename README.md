@@ -1,3 +1,8 @@
+Amir's fork
+===========
+
+I like to try new things. So... I decided to try Emacs Prelude. It's nice O_O.
+
 [![License GPL 3][badge-license]](http://www.gnu.org/licenses/gpl-3.0.txt)
 [![Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/bbatsov/donate)
 [![Patreon](https://img.shields.io/badge/patreon-donate-orange.svg)](https://www.patreon.com/bbatsov)
