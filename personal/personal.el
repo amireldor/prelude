@@ -2,18 +2,25 @@
 (setq mac-option-modifier 'super)
 
 ;; (prelude-require-packages '(evil-escape linum-relative use-package))
-(prelude-require-packages '(evil-escape linum-relative use-package))
+(prelude-require-packages '(evil-escape evil-leader linum-relative use-package))
+
+(evil-leader/set-leader "<SPC>")
+(evil-leader/set-key
+ "b" 'switch-to-buffer
+ "w" 'save-buffer
+ "q" 'kill-buffer-and-window
+ "f" 'projectile--find-file)
 
 (evil-escape-mode 1)
 (setq-default evil-escape-key-sequence "jh")
 
-;; (define-key evil-normal-state-map (kbd "TAB") 'evil-buffer)
-;; (define-key evil-normal-state-map "s" nil)
-;; (define-key evil-normal-state-map (kbd "s s") 'avy-goto-char)
-;; (define-key evil-normal-state-map (kbd "s k") 'avy-goto-line-above)
-;; (define-key evil-normal-state-map (kbd "s j") 'avy-goto-line-below)
-;; (define-key evil-normal-state-map (kbd "s b") 'avy-goto-word-0-above)
-;; (define-key evil-normal-state-map (kbd "s w") 'avy-goto-word-0-below)
+(define-key evil-normal-state-map (kbd "TAB") 'evil-buffer)
+(define-key evil-normal-state-map "s" nil)
+(define-key evil-normal-state-map (kbd "s s") 'avy-goto-char)
+(define-key evil-normal-state-map (kbd "s k") 'avy-goto-line-above)
+(define-key evil-normal-state-map (kbd "s j") 'avy-goto-line-below)
+(define-key evil-normal-state-map (kbd "s b") 'avy-goto-word-0-above)
+(define-key evil-normal-state-map (kbd "s w") 'avy-goto-word-0-below)
 
 (use-package parinfer
   :ensure t

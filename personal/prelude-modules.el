@@ -8,7 +8,9 @@
 (require 'prelude-helm-everywhere) ;; enable helm everywhere
 (require 'prelude-company)
 ;; (require 'prelude-key-chord) ;; Binds useful features to key combinations
-;; (require 'prelude-evil)
+
+(global-evil-leader-mode)
+(require 'prelude-evil)
 
 ;;; Programming languages support
 (require 'prelude-c)
