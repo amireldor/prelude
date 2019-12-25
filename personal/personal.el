@@ -1,18 +1,7 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)
 
-;; (prelude-require-packages '(evil-escape linum-relative use-package))
-(prelude-require-packages '(evil-escape evil-leader linum-relative use-package))
-
-(evil-leader/set-leader "<SPC>")
-(evil-leader/set-key
- "b" 'switch-to-buffer
- "w" 'save-buffer
- "q" 'kill-buffer-and-window
- "f" 'projectile--find-file)
-
-(evil-escape-mode 1)
-(setq-default evil-escape-key-sequence "jh")
+(prelude-require-packages '(linum-relative use-package))
 
 (define-key evil-normal-state-map (kbd "TAB") 'evil-buffer)
 (define-key evil-normal-state-map "s" nil)
@@ -40,3 +29,22 @@
     (add-hook 'common-lisp-mode-hook #'parinfer-mode)
     (add-hook 'scheme-mode-hook #'parinfer-mode)
     (add-hook 'lisp-mode-hook #'parinfer-mode)))
+
+(use-package evil-leader
+  :ensure t
+  :init
+  (progn
+    (global-evil-leader-mode)
+    (evil-leader/set-leader "<SPC>")
+    (evil-leader/set-key
+    "b" 'switch-to-buffer
+    "w" 'save-buffer
+    "q" 'kill-buffer-and-window
+    "f" 'projectile--find-file)))
+
+(use-package evil-escape
+  :ensure t
+  :init
+  (progn
+    (evil-escape-mode 1)
+    (setq-default evil-escape-key-sequence "jh")))
