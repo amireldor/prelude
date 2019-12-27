@@ -11,6 +11,20 @@
 (define-key evil-normal-state-map (kbd "s b") 'avy-goto-word-0-above)
 (define-key evil-normal-state-map (kbd "s w") 'avy-goto-word-0-below)
 
+(defun find-prelude-personal ()
+  (interactive)
+  (find-file "~/.emacs.d/personal/personal.el"))
+
+(evil-leader/set-key
+  "5" 'find-prelude-personal)
+
+(evil-leader/set-key-for-mode 'clojure-mode
+  "d" 'cider-find-var
+  "D" 'cider-doc
+  "fn" 'cider-find-ns
+  "z" 'cider-switch-to-repl-buffer
+  "ji" 'cider-jack-in)
+
 (use-package parinfer
   :ensure t
   :bind
