@@ -62,3 +62,9 @@
   (progn
     (evil-escape-mode 1)
     (setq-default evil-escape-key-sequence "jh")))
+
+(use-package restart-emacs
+  :ensure t)
+
+(use-package afternoon-theme
+  :ensure t)
