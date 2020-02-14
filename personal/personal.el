@@ -15,17 +15,6 @@
   (interactive)
   (find-file "~/.emacs.d/personal/personal.el"))
 
-(evil-leader/set-key
-  "5" 'find-prelude-personal)
-
-(dolist (mode '(clojure-mode clojurescript-mode clojurec-mode))
-  (evil-leader/set-key-for-mode mode
-    "d" 'cider-find-var
-    "D" 'cider-doc
-    "bn" 'cider-browse-ns
-    "z" 'cider-switch-to-repl-buffer
-    "ji" 'cider-jack-in))
-
 
 (use-package parinfer
   :ensure t
@@ -41,6 +30,8 @@
              smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
              smart-yank))   ; Yank behavior depend on mode.
     (add-hook 'clojure-mode-hook #'parinfer-mode)
+    (add-hook 'clojurescript-mode-hook #'parinfer-mode)
+    (add-hook 'clojurec-mode-hook #'parinfer-mode)
     (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
     (add-hook 'common-lisp-mode-hook #'parinfer-mode)
     (add-hook 'scheme-mode-hook #'parinfer-mode)
@@ -56,7 +47,17 @@
       "b" 'switch-to-buffer
       "w" 'save-buffer
       "q" 'kill-buffer-and-window
-      "f" 'projectile--find-file)))
+      "f" 'projectile--find-file
+      "5" 'find-prelude-personal)
+    (dolist (mode '(clojure-mode clojurescript-mode clojurec-mode))
+      (evil-leader/set-key-for-mode mode
+        "d" 'cider-find-var
+        "D" 'cider-doc
+        "bn" 'cider-browse-ns
+        "z" 'cider-switch-to-repl-buffer
+        "ji" 'cider-jack-in))))
+
+
 
 (use-package evil-escape
   :ensure t
@@ -68,7 +69,7 @@
 (use-package restart-emacs
   :ensure t)
 
-(use-package afternoon-theme
+(use-package badger-theme
   :ensure t)
 
 (defun my-clojure-mode-hook ()
@@ -104,4 +105,4 @@
   :ensure t
   :init
   (progn
-    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)))
+    (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)))
