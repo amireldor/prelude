@@ -52,7 +52,7 @@
 ;;; Vim emulation
 ;;
 ;; Enable this module if you're fond of vim's keybindings.
-;; (require 'prelude-evil)
+(require 'prelude-evil)
 
 ;;; Org-mode (a legendary productivity tool that deserves its own category)
 ;;
